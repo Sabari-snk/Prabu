@@ -1,3 +1,575 @@
 
-<html> Hello Prabhu
+<html>
+
+  ***Angular***  30/10/2023
+
+*** FRONT END***
+1) CSS-Cascading Style Sheets
+2)HTML-Hypertext Markup Language
+3)TS-TypeScript
+*** BACK END***
+1)JAVA
+
+
+
+Java Stream
+
+1)Collection freameWork Support
+
+2)parallel Processing---flow of water
+
+filter(predicate)---predicate=>input object+>Boolean output 
+
+1)listStream.filter(M->M.getReleaseYear()==2020) o/p  2020 movile only
+2)stream.map(Movie::getName)
+
+
+1-to 2
+
+movielist.stream().filter(M->M,getRelecedYear()==2021).map(Movie::getname).foreach(sysout)
+
+
+*****Get :ist of movies names and add it to list   ******
+List<Movies>lstMovies=already set the values;
+list<String>MoviesName=lstMovies.stream().map(movie::getName).collect(Collectors.tolist());
+moviesName.foreach(sysout);
+
+***get all the Movies and add it to det Dulicate values****
+Set<String>MoviesName=lstMovies.stream().map(movie::getName).collect(Collectors.toSet());
+moviesName.foreach(sysout);
+
+***Join all the movies name using comma separeated values ****
+String AllMoviesName=lstMovies.stream().map(movie::getName).collect(Collectors.joining(","));
+ex:prabhu,jon,sabari,sanddep;
+
+
+***Group movies released in year of release***
+map<Integer,List<MoviePojo>>movieMapList=lstMovie.stream().collect(Collectors.groupingBy(MoviesPojp::getRelecedYear()));
+movieMapList.foreach((K,v)->sysout("Name"+K,"Year"+ V ));
+
+
+ ***Find the average movie Ratings from the list of movies***
+Double averageRating=lstMovie.stream().collect(Collectors.averagingInt(MoviesPojp::getRating()));
+
+***Split the List of movies into 2Seperate list based on critrria,eg-rating>=4***
+--Map return
+map<Boolean,list<MoviePojo>>moviesRatingParts=lstMovie.stream().collect(Collectors.partitionBy(m->m.getRating()>=4));
+
+
+
+****Angular****
+NodeJs18.10  in crome new Version
+
+
+
+
+****New Project Creation *****
+useing cmd file location -ng new (project name)
+next -n
+css 	
+Packages installed successfully
+
+
+****how to open for project in vs code in cmd *****
+D:\Prabhu\AngularProject>code (project name)
+
+
+
+****windows Property file commend*******
+
+/*ng : File C:\Users\ram\AppData\Roaming\npm\ng.ps1 cannot be loaded because running scripts is disabled 
+on this system. For more information, see about_Execution_Policies at 
+https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ ng serve
++ ~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS D:\Prabhu\AngularProject\hello-world> Set-executionpolicy -executionpolicy RemoteSigned -Scope CurrecntUser^C
+PS D:\Prabhu\AngularProject\hello-world> Set-executionpolicy -executionpolicy RemoteSigned -Scope CurrecntUser
+Set-ExecutionPolicy : Cannot bind parameter 'Scope'. Cannot convert value "CurrecntUser" to type 
+"Microsoft.PowerShell.ExecutionPolicyScope". Error: "Unable to match the identifier name CurrecntUser   
+to a valid enumerator name. Specify one of the following enumerator names and try again:
+Process, CurrentUser, LocalMachine, UserPolicy, MachinePolicy"
+At line:1 char:58
++ Set-executionpolicy -executionpolicy RemoteSigned -Scope CurrecntUser
++                                                          ~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-ExecutionPolicy], ParameterBindingException     
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.SetExecutio  
+   nPolicyCommand*/
+
+======>>>>>>>>>> angular Cli Commend Access Code Line======>>>>>>
+Set-executionpolicy -executionpolicy RemoteSigned -Scope CurrentUser
+
+
+****Angular view Server Link  *****
+cmd   ------>>>ng serve
+Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+***************************************************22Jan24******************
+****typescript learn need for nmp package***
+npm i -g typescript
+i-install
+g-global
+typeScript --package namecls
+
+
+***create file code main.ts***
+cmd>>>>code main.ts
+
+
+****to Convert typeScript to java Script******
+(basic Funtion call Mode)
+
+
+function log(message){
+    console.log(message)
+}
+
+log("Hello Prabhu");
+
+
+
+cmb>>>tsc main.ts
+dir(---->>this Code for  view main.ts code File Location)
+
+*******how to run Ts Code file********
+open file location cmd -->>node   filename.jas  ex(main.js)
+
+
+*****how to declare in ts *****
+
+two type of declareation 
+
+
+* var number=1;
+*let count=3;
+
+
+*******basci   for condition  var key Word  var meand using full access for this finction but let not working*****
+function dosomething(){
+    for(var i=0;i<5;i++){
+        console.log(i)
+    }
+    console.log('finally:',i)
+}
+
+
+dosomething();
+
+
+ after Run process
+
+tsc main.ts  \n--->>>to convert java Script file  after Run it output will be come
+node main.js
+
+
+o/p
+0
+1
+2
+3
+4
+finally:4
+
+
+
+
+******lrt function ****
+function dosomething(){
+    for(let i=0;i<5;i++){
+        console.log(i)
+    }
+    console.log('finally with let:',i)
+}
+
+
+dosomething();
+
+automatic convert= var
+
+
+****data type for typescript***
+
+
+let count=1;
+count='a';--->>this erroe
+
+
+var count=1;
+count=1;----correct
+
+let count;  --any data type 
+count=1;
+count='a';
+count=true;
+
+
+*****data type useing variable declareation*****
+
+let a:number;
+let b:String;
+let c:boolean;
+let d:any;
+let e:number[]=[1,2,3];
+let f:String[]=['a','b']
+let g:any[]=[1,'a',2,'b',true]
+
+const  colourRed=0;
+const colurBlue=1;
+const  colurGreen=2;
+
+
+enum colour {red,blue,green};--->>defalult index 0,1,2  dou want change for value enum colour{red=101,blue=102,green=103}
+let backgroundcolur=colour.blue;
+
+
+
+&&&&&&&&&&&&&&&&&same java Script Code *****
+var a;
+var b;
+var c;
+var d;
+var e = [1, 2, 3];
+var f = ['a', 'b'];
+var g = [1, 'a', 2, 'b', true];
+var colourRed = 0;
+var colurBlue = 1;
+var colurGreen = 2;
+var colour;
+(function (colour) {
+    colour[colour["red"] = 0] = "red";
+    colour[colour["blue"] = 1] = "blue";
+    colour[colour["green"] = 2] = "green";
+})(colour || (colour = {}));
+;
+var backgroundcolur = colour.blue;
+
+
+******type assation******
+
+let colour='red';
+let endWithD=colour.endWithD('d');--correct
+
+
+let colour;
+colour='Red';
+let endWithD=colour.endWithD('d');---worng
+
+****typeassation
+
+let color;
+color='red';
+let endsWithD=(<string> color).endsWithD('d')
+    *****or****
+let alternativeEndsWidth=(color as string).endsWith('d')
+
+
+*****using type script Her<> functions*****		
+
+
+let log=function(message){
+    console.log (message)
+}
+
+let dolog=(message)=>{
+    1
+}
+
+*******ts using Interface******
+normal declarion
+let draw=(X:number,y:number,z:number)=>{
+
+}
+
+
+draw(1,2,3);
+
+ts interface declareation
+
+interface point{
+    x:number,
+   y :number,
+    z:number
+}
+let drawing=(point:point)=>{
+
+}
+drawing({x:1,y:2,z:3})
+
+
+
+*****class****
+
+class point{
+    x:number;
+   y :number;
+    z:number;
+draw=():any=>{
+    console.log('X'+this.x+'Y'+this.y+'Z'+this.z)
+}
+ drawRectangale:()=>{
+   draw()
+}
+}
+
+let shape=new point();
+shape.x=5;
+shape.y=15;
+shape.z=25;
+shape.draw()
+
+let shape1=new point();
+shape1.x=10;
+shape1.y=20;
+shape1.z=30;
+shape1.draw()
+
+
+
+*******Constructor*********
+class point{
+    x:number;
+   y :number;
+    z:number;
+
+constructor(X:number,y:number,z:number){
+this.x=X;
+this.y=y;
+this.z=z;
+}
+
+draw=():any=>{
+    console.log('X'+this.x+'Y'+this.y+'Z'+this.z)
+}
+ drawRectangale:()=>{
+   draw()
+}
+}
+
+let shape=new point(5,15,25);
+
+shape.draw()
+
+let shape1=new point(10,20,30);
+
+shape1.draw()
+
+
+******you want to pass constructor value is empty or not using ? mark symbol*****
+class point{
+    x:number;
+   y :number;
+    z:number;
+
+constructor(X?:number,y?:number,z?:number){
+this.x=X;
+this.y=y;
+this.z=z;
+}
+
+draw=():any=>{
+    console.log('X'+this.x+'Y'+this.y+'Z'+this.z)
+}
+ drawRectangale:()=>{
+   draw()
+}
+}
+
+let shape=new point(5,15);
+
+shape.draw()
+
+let shape1=new point(30);
+
+shape1.draw()
+
+******Access modifier   only class level valye using private *****
+class point{
+private    x:number;
+   y :number;
+    z:number;
+
+constructor(X?:number,y?:number,z?:number){
+this.x=X;
+this.y=y;
+this.z=z;
+}
+
+private draw=():any=>{
+    console.log('X'+this.x+'Y'+this.y+'Z'+this.z)
+}
+ drawRectangale:()=>{
+console.log('check');
+  this. draw()
+}
+}
+
+(let shape=new point(1,5,15);
+shape.x=4;)--error
+
+let shape=new point(1,5,15); correct
+
+shape.drawRectangale()
+
+
+o/p 4,5,15
+
+
+
+
+*************how to create component creation cmd******
+ng generate component hello-world
+
+
+*****buindig types****
+*one way  buindin
+*two way buinding
+
+two way buniding means i f you want to change in view form  code will be change 
+htmi code ===<input type="text"[(ngModel)]="firstname">
+
+
+
+
+**************************HTML**************************
+
+
+<!DOCTYPE html>    -------meaning for html doucument for this file
+<h1></h1>  ------Font Size   h1 to h6
+<head></head>   ---><title>facebook.com</title>   -----meaning for  browser name
+<p></P>  ---- meaning for paragraphy tag
+<p><i>this</i> is  <b>html</b></p>
+		i --for Italic font
+		b --- for bold tag 
+<P>a<sup>2</sup></P>  -----a2 (asquare)	
+<P>a<sub>2</sub></P>  -----a2 (aunder bottom)
+
+<p>
+	hai <br />
+		i am 
+</p>
+
+
+(next line )<br/>
+
+<hr />  horizontal line -------------------------------------------------
+
+use commend in html
+<!--  content -->
+
+
+&ngsf (tag Space for html) 
+
+**emfasize tag  and Storg tag**
+<p>
+	<Strong> i am prabhu</Strong>  (<!--defanition(BOLD) as  same <b> tag-->)
+	<em>i am <em> prabhu   (<!--ITALIC FORMAT Same as <i> tag-->)
+
+</p>
+
+
+<q>  --quotes tag ""
+<blockquote></blockquote> as same <q tag>
+
+<abbr> </abbr> -- abbrivation tag ISRO user Programable 
+<cite> </cite>  ---copy for one content to show for Site  Tag 
+<dfn></dfn>   --R-means  Rain in proper definistion tag
+<address></address>  ---contact informaion 
+
+
+<p><del> old value 455</del><ins>new value  500</ins></p>   --<del> as  delete tag <ins>  as insert tag
+<s>old number is9025716235</s>
+
+(this value show for word Strict in word  111111--
+<u></u>  under line tag
+
+***************************html list*********************************************
+	.  for der list  dot function 
+
+	1 for r list  dot function 
+
+<ul></ul>     unorder list  dot function 
+<li></li>  list tag
+	Example 
+</ul>
+		<li>Onion</li>
+		<li>tomoto</li>
+		<li>Ginger<li>
+
+</ul>
+
+
+<ol></ol>      order list  dot function 
+ same for   
+
+</ol>
+		<li>Onion</li>
+		<li>tomoto</li>
+		<li>Ginger<li>
+
+</ol> 
+
+
+
+
+Example 
+<ol  type ="a">
+	<li> number one</li>
+	<ul>
+		<li>dot one </li>
+	</ul>
+</ol>
+
+
+<ol  Start =5>
+	<li> number one</li>
+	<ul>
+		<li>dot one </li>
+	</ul>
+</ol>
+	
+ EXAMPLE  TWO FOR DEFINATION 
+
+<dl>
+	<dt>Fist Definaion example Thirukural</dt>
+	<dd>Thirukural Porual</dt>
+<dl>
+
+
+
+*********************LINKS IN HTML 4********************************************************
+
+ 
+Angar Tag  <a></a>
+ <a href=”www.facebook.com”>Order online </a>
+ <a  href=”www.facebook.com”  target=”_blank”>Order online </a>    —>open for new tab
+
+ABOUT  new html  in one source class 
+	<a href=”home.html”</a>      class name + .html
+	<a href=”menu</a>
+ABOUT  new html  in other source class 
+<ahref=”../home.html”</a>   use / key word
+
+../  parent folder
+../../ grand parent folder
+
+
+Use Email
+
+<a” href=”mailto:prabhusumathi12@gmail.com”>send to email </a>
+
+<h2 id=”desert”>prabhu</h2>  another class  name menu.html
+
+<a href=”menu.html#desert”>check our new Address</a>
+	Direct going for this method
+
+
+
+
+
+
+
+
+  
 </html>
